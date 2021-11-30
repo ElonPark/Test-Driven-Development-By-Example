@@ -10,10 +10,9 @@ abstract class Money(protected var amount: Int, protected val currency: String) 
     abstract fun times(multiplier: Int): Money
 
     override fun equals(other: Any?): Boolean {
-        if (other is Money) {
-            val isSameClass = javaClass.kotlin.equals(other.javaClass.kotlin)
-            return amount == other.amount && isSameClass
-        }
-        return false
+        val money = other as Money
+        return amount == money.amount && currency.equals(money.currency)
     }
+
+    override fun toString(): String = "$amount $currency"
 }
