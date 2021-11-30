@@ -1,9 +1,11 @@
-abstract class Money(protected var amount: Int) {
+abstract class Money(protected var amount: Int, protected val currency: String) {
 
     companion object {
-        fun dollar(amount: Int): Money = Dollar(amount)
-        fun franc(amount: Int): Money = Franc(amount)
+        fun dollar(amount: Int): Money = Dollar(amount, "USD")
+        fun franc(amount: Int): Money = Franc(amount, "CHF")
     }
+
+    fun currency(): String = currency
 
     abstract fun times(multiplier: Int): Money
 
