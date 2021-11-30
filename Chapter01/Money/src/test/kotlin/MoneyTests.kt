@@ -28,7 +28,12 @@ class MoneyTests {
 
     @Test
     fun testCurrency() {
-        assertEquals("USD", Money.dollar(1).currency())
-        assertEquals("CHF", Money.franc(1).currency())
+        assertEquals("USD", Money.dollar(1).currency)
+        assertEquals("CHF", Money.franc(1).currency)
+    }
+
+    @Test
+    fun testDifferentClassEquality() {
+        assertTrue(Money(10, "CHF").equals(Franc(10, "CHF")))
     }
 }
