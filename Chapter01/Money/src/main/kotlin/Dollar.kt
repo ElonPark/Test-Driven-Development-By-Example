@@ -5,9 +5,7 @@ class Dollar(private var amount: Int) {
     }
 
     override fun equals(other: Any?): Boolean {
-        if (other is Dollar) {
-            return amount == other.amount
-        }
+        if (other is Dollar) return amount == other.amount
         return false
     }
 }
