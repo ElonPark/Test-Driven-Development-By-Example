@@ -17,9 +17,9 @@ class Money(internal val amount: Int, val currency: String): Expression {
         return Money(amount / rate, to)
     }
 
-    fun times(multiplier: Int): Money? = Money(amount * multiplier, currency)
-
-    fun plus(addend: Money): Expression {
+    override fun plus(addend: Expression): Expression {
         return Sum(this, addend)
     }
+
+    fun times(multiplier: Int): Expression = Money(amount * multiplier, currency)
 }

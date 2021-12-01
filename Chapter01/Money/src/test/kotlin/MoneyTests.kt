@@ -71,11 +71,11 @@ class MoneyTests {
 
     @Test
     fun testMixedAddition() {
-        val ficeBucks: Money = Money.dollar(5)
-        val tenFrancs: Money = Money.franc(10)
+        val fiveBucks: Expression = Money.dollar(5)
+        val tenFrancs: Expression = Money.franc(10)
         val bank = Bank()
         bank.addRate("CHF", "USD", 2)
-        val result: Money = bank.reduce(ficeBucks.plus(tenFrancs), "USD")
+        val result: Money = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
         assertEquals(Money.dollar(10), result)
     }
 }
