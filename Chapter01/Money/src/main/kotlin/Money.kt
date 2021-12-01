@@ -21,5 +21,7 @@ class Money(internal val amount: Int, val currency: String): Expression {
         return Sum(this, addend)
     }
 
-    fun times(multiplier: Int): Expression = Money(amount * multiplier, currency)
+    override fun times(multiplier: Int): Expression {
+        return Money(amount * multiplier, currency)
+    }
 }
