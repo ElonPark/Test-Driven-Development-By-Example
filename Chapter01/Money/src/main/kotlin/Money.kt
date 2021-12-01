@@ -12,7 +12,10 @@ class Money(internal val amount: Int, val currency: String): Expression {
 
     override fun toString(): String = "$amount $currency"
 
-    override fun reduce(to: String): Money = this
+    override fun reduce(bank: Bank, to: String): Money {
+        val rate = bank.rate(currency, to)
+        return Money(amount / rate, to)
+    }
 
     fun times(multiplier: Int): Money? = Money(amount * multiplier, currency)
 
