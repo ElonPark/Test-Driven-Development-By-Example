@@ -5,6 +5,7 @@ class Sum(val augend: Expression, val addend: Expression): Expression {
     }
 
     override fun plus(addend: Expression): Expression {
-        return TODO()
+        return Sum(this, addend)
+    }
     }
 }
